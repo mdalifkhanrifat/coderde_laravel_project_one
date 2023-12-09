@@ -45,13 +45,13 @@
                                 <ul class="dropdown-menu">
 
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">About Us</a>
+                                        <a href="{{ route('front.about') }}" class="nav-link">About Us</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">Group Info</a>
+                                        <a href="{{ route('front.group-info') }}" class="nav-link">Group Info</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">Contact</a>
+                                        <a href="{{ route('front.contact') }}" class="nav-link">Contact</a>
                                     </li>
                                 </ul>
 

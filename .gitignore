@@ -17,4 +17,5 @@
 #/.fleet
 #/.idea
 #/.vscode
+#/_MACOSX
 node_modules

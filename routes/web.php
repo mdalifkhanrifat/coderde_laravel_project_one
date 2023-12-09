@@ -82,6 +82,7 @@ use App\Http\Controllers\Front\SubscriptionController;
 use App\Http\Controllers\Front\TeamMemberController as TeamMemberControllerForFront;
 use App\Http\Controllers\Front\TermController;
 use App\Http\Controllers\Front\VideoGalleryController;
+use App\Http\Controllers\Front\GroupInfoController;
 
 
 /* --------------------------------------- */
@@ -89,6 +90,7 @@ use App\Http\Controllers\Front\VideoGalleryController;
 /* --------------------------------------- */
 Route::get('/', [HomeController::class,'index']);
 Route::get('about', [AboutController::class,'index'])->name('front.about');
+Route::get('group-info', [GroupInfoController::class,'index'])->name('front.group-info');
 Route::get('services', [ServiceControllerForFront::class,'index'])->name('front.services');
 Route::get('service/{slug}', [ServiceControllerForFront::class,'detail']);
 Route::get('blog', [BlogControllerForFront::class,'index'])->name('front.blogs');
