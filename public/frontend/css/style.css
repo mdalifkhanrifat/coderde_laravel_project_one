@@ -269,7 +269,7 @@ textarea::placeholder {
 
 
 /* Main Nav */
-.main-nav {
+/* .main-nav {
 	position: relative;
 	padding-top: 0;
 	padding-bottom: 0;
@@ -288,7 +288,7 @@ textarea::placeholder {
 }
 
 .main-nav nav .navbar-nav .nav-item .dropdown-menu {
-	top: 88px!important;
+	top: 57px!important;
 	background: #3867D6!important;
 	padding: 0!important;
 	border: none!important;
@@ -322,7 +322,7 @@ textarea::placeholder {
 
 .main-nav img {
 	height: 70px;
-}
+} */
 
 
 /* Sticky Nav */

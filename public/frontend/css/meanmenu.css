@@ -35,6 +35,8 @@ a.meanmenu-reveal {
     margin-top: 3px;
     border-radius: 3px;
 }
+
+/* 
 .mean-container .mean-nav {
 	float: left;
 	width: 100%;
@@ -120,13 +122,14 @@ a.meanmenu-reveal {
 	margin: 0;
 	clear: both;
 }
+
 .mean-nav .wrapper {
 	width: 100%;
 	padding: 0;
 	margin: 0;
 }
 /* Fix for box sizing on Foundation Framework etc. */
-.mean-container .mean-bar, .mean-container .mean-bar * {
+/* .mean-container .mean-bar, .mean-container .mean-bar * {
 	-webkit-box-sizing: content-box;
 	-moz-box-sizing: content-box;
 	box-sizing: content-box;
@@ -169,8 +172,8 @@ a.meanmenu-reveal {
     padding: 15px 0;
 }
 .main-nav nav .navbar-nav .nav-item a {
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: 550;
+    font-size: 13px;
     text-transform: uppercase;
     color: #ffffff;
     padding-left: 0;
@@ -272,7 +275,7 @@ a.meanmenu-reveal {
 }
 
 /* Responsive Style */
-@media only screen and (max-width: 991px) {
+/* @media only screen and (max-width: 991px) {
     .mobile-nav {
         display: block;
         position: relative;
@@ -301,4 +304,4 @@ a.meanmenu-reveal {
     .main-nav {
         display: none !important;
     }
-}
+}  */

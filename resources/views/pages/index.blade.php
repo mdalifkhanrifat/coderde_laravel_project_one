@@ -37,35 +37,42 @@ hello
 </div>
 
 
-@if($page_home->why_choose_status == 'Show')
-<div class="feature">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="heading wow fadeInUp">
-                    <h2>{{ $page_home->why_choose_title }}</h2>
-                    <h3>{{ $page_home->why_choose_subtitle }}</h3>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            @foreach($why_choose_items as $row)
-            <div class="col-md-4">
-                <div class="feature-item wow fadeInUp">
-                    <div class="icon">
-                        <img src="{{ asset('uploads/'.$row->photo) }}" alt="">
-                    </div>
-                    <h4>{{ $row->name }}</h4>
-                    <p>
-                        {!! nl2br(e($row->description)) !!}
-                    </p>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</div>
-@endif
+<h2 style="font-weight: bold;background-color: #3a3b45;color: white;"> Letest News:</h2>
+
+
+
+
+
+
+{{--@if($page_home->why_choose_status == 'Show')--}}
+{{--<div class="feature">--}}
+{{--    <div class="container">--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-md-12">--}}
+{{--                <div class="heading wow fadeInUp">--}}
+{{--                    <h2>{{ $page_home->why_choose_title }}</h2>--}}
+{{--                    <h3>{{ $page_home->why_choose_subtitle }}</h3>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="row">--}}
+{{--            @foreach($why_choose_items as $row)--}}
+{{--            <div class="col-md-4">--}}
+{{--                <div class="feature-item wow fadeInUp">--}}
+{{--                    <div class="icon">--}}
+{{--                        <img src="{{ asset('uploads/'.$row->photo) }}" alt="">--}}
+{{--                    </div>--}}
+{{--                    <h4>{{ $row->name }}</h4>--}}
+{{--                    <p>--}}
+{{--                        {!! nl2br(e($row->description)) !!}--}}
+{{--                    </p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            @endforeach--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
+{{--@endif--}}
 
 
 @if($page_home->special_status == 'Show')
@@ -210,41 +217,90 @@ hello
 @endif
 
 
-@if($page_home->team_member_status == 'Show')
-<div class="team bg-lightblue">
+{{--@if($page_home->team_member_status == 'Show')--}}
+{{--<div class="team bg-lightblue">--}}
+{{--    <div class="container">--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-md-12">--}}
+{{--                <div class="heading wow fadeInUp">--}}
+{{--                    <h2>{{ $page_home->team_member_title }}</h2>--}}
+{{--                    <h3>{{ $page_home->team_member_subtitle }}</h3>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-md-12">--}}
+{{--                <div class="team-carousel owl-carousel">--}}
+{{--                    @foreach($team_members as $row)--}}
+{{--                    <div class="team-item wow fadeInUp">--}}
+{{--                        <div class="team-photo">--}}
+{{--                            <a href="{{ url('team-member/'.$row->slug) }}" class="team-photo-anchor">--}}
+{{--                                <img src="{{ asset('uploads/'.$row->photo) }}" alt="Team Member Photo">--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                        <div class="team-text">--}}
+{{--                            <h4><a href="{{ url('team-member/'.$row->slug) }}">{{ $row->name }}</a></h4>--}}
+{{--                            <p>{{ $row->designation }}</p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    @endforeach--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
+{{--@endif--}}
+
+
+
+
+<h3 style="font-size: 24px; font-family: inherit;font-weight: bold;line-height: 1.1;color: inherit;margin-left: 670px;">OUR CLIENTS</h3> <hr>
+<style>
+    .column {
+        float: left;
+        width: 25%;
+        padding: 10px;
+    }
+
+
+    .column img {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+    .column img:hover {
+        opacity: 1;
+    }
+
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+
+
+</style>
+<marquee scrollamount="20"  direction="left" >
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <div class="heading wow fadeInUp">
-                    <h2>{{ $page_home->team_member_title }}</h2>
-                    <h3>{{ $page_home->team_member_subtitle }}</h3>
-                </div>
+
+            <div class="column">
+                <img src="#"alt="Mountains" onclick="myFunction(this);">
+            </div>
+            <div class="column">
+                <img src="#"alt="Lights" onclick="myFunction(this);">
+            </div>
+            <div class="column">
+                <img src="#"alt="Lights" onclick="myFunction(this);">
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="team-carousel owl-carousel">
-                    @foreach($team_members as $row)
-                    <div class="team-item wow fadeInUp">
-                        <div class="team-photo">
-                            <a href="{{ url('team-member/'.$row->slug) }}" class="team-photo-anchor">
-                                <img src="{{ asset('uploads/'.$row->photo) }}" alt="Team Member Photo">
-                            </a>
-                        </div>
-                        <div class="team-text">
-                            <h4><a href="{{ url('team-member/'.$row->slug) }}">{{ $row->name }}</a></h4>
-                            <p>{{ $row->designation }}</p>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
+
     </div>
-</div>
-@endif
+</marquee>
 
-
+</section>
 
 @if($page_home->appointment_status == 'Show')
 <div class="cta" style="background-image: url({{ asset('uploads/'.$page_home->appointment_bg) }});">
