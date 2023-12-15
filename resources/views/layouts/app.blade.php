@@ -10,6 +10,7 @@ $footer_col_2 = DB::table('footer_columns')->orderBy('column_item_order', 'asc')
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
 
     @php
     $url = Request::path();
@@ -291,11 +292,12 @@ $footer_col_2 = DB::table('footer_columns')->orderBy('column_item_order', 'asc')
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700&display=swap" rel="stylesheet">
 
+
     @include('layouts.scripts')
 
     <style>
         .top,
-        .main-nav nav .navbar-nav .nav-item .dropdown-menu,
+        {{-- .main-nav nav .navbar-nav .nav-item .dropdown-menu, --}}
         .video-button:before,
         .video-button:after,
         .special .read-more a,
@@ -327,8 +329,8 @@ $footer_col_2 = DB::table('footer_columns')->orderBy('column_item_order', 'asc')
         .career-sidebar .widget button {
             background: {{ '#'.$g_setting->theme_color }}!important;
         }
-        .main-nav nav .navbar-nav .nav-item a:hover,
-        .main-nav nav .navbar-nav .nav-item:hover a,
+        {{-- .main-nav nav .navbar-nav .nav-item a:hover, --}}
+        {{-- .main-nav nav .navbar-nav .nav-item:hover a, --}}
         .service .service-item .text h3 a:hover,
         .project .project-item .text h3 a:hover,
         .blog-area .blog-item h3 a:hover,
@@ -360,7 +362,7 @@ $footer_col_2 = DB::table('footer_columns')->orderBy('column_item_order', 'asc')
 
 
 
-        .main-nav nav .navbar-nav .nav-item .dropdown-menu li a,
+        {{-- .main-nav nav .navbar-nav .nav-item .dropdown-menu li a, --}}
         .contact-item:hover .contact-icon,
         .product-detail .nav-pills .nav-link.active {
             color: #fff!important;
@@ -383,8 +385,16 @@ $footer_col_2 = DB::table('footer_columns')->orderBy('column_item_order', 'asc')
             background: transparent!important;
             border-color: #fff!important;
         }
+        .navbar.bg-light {
+			background-color: #fcfaf5 !important;
+
+			.form-control {
+				border-radius: 4.25rem;
+			}
+		}
     </style>
 
+    
 
 </head>
 <body>
