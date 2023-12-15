@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    my name is sabbir 
+
     <div class="page-banner" style="background-image: url({{ asset('uploads/'.$g_setting->banner_term) }})">
         <div class="bg-page"></div>
         <div class="text">
