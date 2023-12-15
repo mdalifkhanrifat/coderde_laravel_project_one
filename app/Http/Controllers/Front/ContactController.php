@@ -50,8 +50,11 @@ class ContactController extends Controller
         $message = str_replace('[[visitor_message]]', $request->visitor_message, $message);
 
         $admin_data = DB::table('admins')->where('id',1)->first();
+        // dd($admin_data);
 
-        Mail::to($admin_data->email)->send(new ContactPageMessage($subject,$message));
+        // Mail::to($admin_data->email)->send(new ContactPageMessage($subject,$message));
+        Mail::to('info@shawalbd.com')->send(new ContactPageMessage($subject,$message));
+
 
         return redirect()->back()->with('success', 'Message is sent successfully! Admin will contact you soon');
     }
