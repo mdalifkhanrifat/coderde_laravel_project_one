@@ -56,6 +56,6 @@ class ContactController extends Controller
         Mail::to('info@shawalbd.com')->send(new ContactPageMessage($subject,$message));
 
 
-        return redirect()->back()->with('success', 'Message is sent successfully! Admin will contact you soon');
+        return redirect()->to('/')->with('success', 'Message is sent successfully! Admin will contact you soon');
     }
 }

@@ -32,9 +32,9 @@
                     Home
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">About Us</a>
-                    <a class="dropdown-item" href="#">Team Member</a>
-                    <a class="dropdown-item" href="#">Conbet</a>
+                    <a class="dropdown-item" href="{{ route('front.about') }}">About Us</a>
+                    <a class="dropdown-item" href="{{ route('front.team_members') }}">Team Member</a>
+                    <a class="dropdown-item" href="{{ route('front.contact') }}">Contact</a>
 
                 </div>
             </li>
