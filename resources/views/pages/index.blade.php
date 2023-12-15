@@ -3,7 +3,7 @@
 @section('content')
 <div class="slider">
     <div class="slide-carousel owl-carousel">
-
+hello
         @foreach($sliders as $row)
         <div class="slider-item" style="background-image:url({{ asset('uploads/'.$row->slider_photo) }});">
             <div class="slider-bg"></div>
