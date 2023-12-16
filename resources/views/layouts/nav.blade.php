@@ -89,14 +89,8 @@
                     Archive
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
-<<<<<<< HEAD
                     <a class="dropdown-item" href="#">Photos</a>
                     <a class="dropdown-item" href="#">Videos</a>
-
-=======
-                    <a class="dropdown-item" href="{{ route('front.photo_gallery') }}">Photos</a>
-                    <a class="dropdown-item" href="{{ route('front.video_gallery') }}">Video</a>
->>>>>>> 8341097ffb82573f78c1bccc53c814fec7e6fe30
                 </div>
             </li>
             
