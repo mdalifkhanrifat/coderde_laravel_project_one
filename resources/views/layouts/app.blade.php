@@ -504,7 +504,6 @@
             /* Set your desired hover color */
         }
 
-       
     </style>
 
 

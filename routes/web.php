@@ -83,6 +83,7 @@ use App\Http\Controllers\Front\TeamMemberController as TeamMemberControllerForFr
 use App\Http\Controllers\Front\TermController;
 use App\Http\Controllers\Front\VideoGalleryController;
 use App\Http\Controllers\Front\GroupInfoController;
+use App\Http\Controllers\Front\EngineeringWorkController;
 
 
 /* --------------------------------------- */
@@ -90,6 +91,8 @@ use App\Http\Controllers\Front\GroupInfoController;
 /* --------------------------------------- */
 Route::get('/', [HomeController::class,'index']);
 Route::get('about', [AboutController::class,'index'])->name('front.about');
+Route::get('engineering-work', [EngineeringWorkController::class,'index'])->name('front.eng-work');
+
 Route::get('group-info', [GroupInfoController::class,'index'])->name('front.group-info');
 Route::get('services', [ServiceControllerForFront::class,'index'])->name('front.services');
 Route::get('service/{slug}', [ServiceControllerForFront::class,'detail']);

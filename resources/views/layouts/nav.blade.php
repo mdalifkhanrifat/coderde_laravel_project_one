@@ -49,7 +49,7 @@
 
                         <ul class="dropdown-menu dropdown-submenu dropdown-submenu-right">
                             <li>
-                                <a class="dropdown-item" href="#">Engineering Works</a>
+                                <a class="dropdown-item" href="{{ route('front.eng-work') }}">Engineering Works</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="#">Architectural Works</a>
