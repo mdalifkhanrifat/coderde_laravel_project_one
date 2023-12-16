@@ -127,9 +127,25 @@
                             <p>
                                 {!! nl2br(e($row->short_description)) !!}
                             </p>
-                            <div class="read-more">
-                                <a href="{{ url('service/'.$row->slug) }}">{{ READ_MORE }}</a>
+                            <div class="read-more d-inline">
+                                <a class="d-inline" href="{{ url('service/'.$row->slug) }}">{{ READ_MORE }}</a>
                             </div>
+
+                            @php   
+                            if($row->working_status  == 1 ){
+                            @endphp
+                             <a class="d-inline float-right btn btn-secondary btn-sm" style="border-radius: 45px; font-size: 9px;" valign="buttom" href="#">Processing </a>
+                             @php
+                            } else if($row->working_status  ==2){
+                             @endphp
+                             <a class="d-inline float-right btn btn-success btn-sm" style="border-radius: 45px; font-size: 9px;" valign="buttom" href="#">Active </a>
+                             @php
+                            } else{
+                             @endphp
+                             <a class="d-inline float-right btn btn-info btn-sm" style="border-radius: 45px; font-size: 9px;" valign="buttom" href="#">Up comming </a>
+                            @php
+                            }
+                            @endphp
                         </div>
                     </div>
                     @endforeach
