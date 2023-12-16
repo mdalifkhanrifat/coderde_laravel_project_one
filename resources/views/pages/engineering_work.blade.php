@@ -15,17 +15,7 @@
     </div>
 <br>
     <div class="container">
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="box">
-                    <a href="#" class="block-20 rounded"><img style="width: 100%; height: 100%;" src="{{ asset('uploads/blog-3.png') }}" alt="Shawal Enterprise">
-                    </a>
-                </div>
-                <br>
 
-            </div>
-
-            <div class="col-sm-8">
                 @if($page_home->service_status == 'Show')
                 <div class="service">
                     <div class="container">
@@ -62,8 +52,8 @@
                     </div>
                 </div>
                 @endif
-            </div>
-        </div>
+
+
     </div>
 
 @endsection
