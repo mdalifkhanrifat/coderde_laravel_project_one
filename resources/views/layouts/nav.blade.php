@@ -55,7 +55,7 @@
                                 <a class="dropdown-item" href="#">Architectural Works</a>
                             </li>
                         </ul>
-                    
+
                     </li>
                     <li>
                         <a class="dropdown-item" href="#"> Consultancy </a>
@@ -89,11 +89,11 @@
                     Archive
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Photos</a>
-                    <a class="dropdown-item" href="#">Videos</a>
+                    <a class="dropdown-item" href="{{ route('front.photo_gallery') }}">Photos</a>
+                    <a class="dropdown-item" href="{{ route('front.video_gallery') }}">Videos</a>
                 </div>
             </li>
-            
+
         </ul>
 
     </div>
