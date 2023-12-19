@@ -36,7 +36,7 @@
 
 
 {{-- <h2 style="font-weight: bold;background-color: #35363a;color: white;"> Letest News:</h2> --}}
-{{-- 
+{{--
 <div class="container-fluid" style="background-color: #35363a;color: white; margin: 0; padding: 0; border: 0; height: 35px ">
    <div class="row">
     <div class="col-md-2" style="font-weight: bold;" >
@@ -60,7 +60,7 @@
         <div class="col-md-10">
             <div class="marquee-container" style="overflow: hidden;">
                 <div class="marquee-content" style="display: inline-block;">
-                    <p>“Stay away from those people who try to disparage your ambitions. Small minds will always do that, but great minds will give you a feeling that you can become great too.” — Mark Twain</p>
+                    <p>“Website development is in progress. We will update very soon. Thank you very much for your patience.</p>
                 </div>
             </div>
         </div>
@@ -310,14 +310,14 @@
     }
 
 
-    .column img {
-        opacity: 0.8;
-        cursor: pointer;
-    }
+    /*.column img {*/
+    /*    opacity: 0.8;*/
+    /*    cursor: pointer;*/
+    /*}*/
 
-    .column img:hover {
-        opacity: 1;
-    }
+    /*.column img:hover {*/
+    /*    opacity: 1;*/
+    /*}*/
 
 
     .row:after {
@@ -330,17 +330,17 @@
 
 </style>
 
-<marquee scrollamount="20"  direction="left" >
+<marquee scrollamount="18"  direction="left" >
     <div class="container">
         <div class="row">
             <div class="column">
-                <img src="#"alt="Mountains" onclick="myFunction(this);">
+                <img src="{{ asset('uploads/1.png') }}"alt="DWASA" onclick="myFunction(this);">
             </div>
             <div class="column">
-                <img src="#"alt="Lights" onclick="myFunction(this);">
+                <img src="{{ asset('uploads/2.png') }}"alt="Government Projects" onclick="myFunction(this);">
             </div>
             <div class="column">
-                <img src="#"alt="Lights" onclick="myFunction(this);">
+                <img src="{{ asset('uploads/3.png') }}"alt="CDDL" onclick="myFunction(this);">
             </div>
         </div>
     </div>

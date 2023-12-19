@@ -29,9 +29,10 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="service-carousel owl-carousel">
+                                <div class="row service pt_0 pb_0">
                                     @foreach($services as $row)
-                                    <div class="service-item wow fadeInUp">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="service-item wow fadeInUp mb_30">
                                         <div class="photo">
                                             <a href="{{ url('service/'.$row->slug) }}"><img src="{{ asset('uploads/'.$row->photo) }}" alt=""></a>
                                         </div>
@@ -44,26 +45,27 @@
                                                 <a class="d-inline" href="{{ url('service/'.$row->slug) }}">{{ READ_MORE }}</a>
                                             </div>
 
-                                            @php   
+                                            @php
                                             if($row->working_status  == 1 ){
                                             @endphp
-                                             <a class="d-inline float-right btn btn-secondary btn-sm" style="border-radius: 45px; font-size: 9px;" valign="buttom" href="#">Processing </a>
+                                             <a class="d-inline float-right btn btn-secondary btn-sm" style="border-radius: 45px; font-size: 12px;" valign="buttom" href="#">Ongoing </a>
                                              @php
                                             } else if($row->working_status  ==2){
                                              @endphp
-                                             <a class="d-inline float-right btn btn-success btn-sm" style="border-radius: 45px; font-size: 9px;" valign="buttom" href="#">Active </a>
+                                             <a class="d-inline float-right btn btn-success btn-sm" style="border-radius: 45px; font-size: 12px;" valign="buttom" href="#">Completed </a>
                                              @php
                                             } else{
                                              @endphp
-                                             <a class="d-inline float-right btn btn-info btn-sm" style="border-radius: 45px; font-size: 9px;" valign="buttom" href="#">Up comming </a>
+                                             <a class="d-inline float-right btn btn-info btn-sm" style="border-radius: 45px; font-size: 12px;" valign="buttom" href="#">Up comming </a>
                                             @php
                                             }
                                             @endphp
 
 
-                                            
-                                            
+
+
                                         </div>
+                                    </div>
                                     </div>
                                     @endforeach
                                 </div>
