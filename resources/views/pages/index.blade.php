@@ -131,18 +131,18 @@
                                 <a class="d-inline" href="{{ url('service/'.$row->slug) }}">{{ READ_MORE }}</a>
                             </div>
 
-                            @php   
+                            @php
                             if($row->working_status  == 1 ){
                             @endphp
-                             <a class="d-inline float-right btn btn-secondary btn-sm" style="border-radius: 45px; font-size: 9px;" valign="buttom" href="#">Processing </a>
+                             <a class="d-inline float-right btn btn-secondary btn-sm" style="border-radius: 45px; font-size: 12px;" valign="buttom" href="#">Processing </a>
                              @php
                             } else if($row->working_status  ==2){
                              @endphp
-                             <a class="d-inline float-right btn btn-success btn-sm" style="border-radius: 45px; font-size: 9px;" valign="buttom" href="#">Active </a>
+                             <a class="d-inline float-right btn btn-success btn-sm" style="border-radius: 45px; font-size: 12px;" valign="buttom" href="#">Active </a>
                              @php
                             } else{
                              @endphp
-                             <a class="d-inline float-right btn btn-info btn-sm" style="border-radius: 45px; font-size: 9px;" valign="buttom" href="#">Up comming </a>
+                             <a class="d-inline float-right btn btn-info btn-sm" style="border-radius: 45px; font-size: 12px;" valign="buttom" href="#">Up comming </a>
                             @php
                             }
                             @endphp
