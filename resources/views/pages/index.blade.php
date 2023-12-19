@@ -31,12 +31,44 @@
             </div>
         </div>
         @endforeach
-
     </div>
 </div>
 
 
-<h2 style="font-weight: bold;background-color: #3a3b45;color: white;"> Letest News:</h2>
+{{-- <h2 style="font-weight: bold;background-color: #35363a;color: white;"> Letest News:</h2> --}}
+{{-- 
+<div class="container-fluid" style="background-color: #35363a;color: white; margin: 0; padding: 0; border: 0; height: 35px ">
+   <div class="row">
+    <div class="col-md-2" style="font-weight: bold;" >
+       <p style="margin-left: 5px; font-size: 20px;"> {{'Letest News:'}}</p>
+    </div>
+    <div class="col-md-10" class="">
+        <marquee scrollamount="15"  direction="left" style="margin: 0; padding: 0;">
+            <div class="" style="margin: 0; padding: 0;">
+                Comming soon.....
+            </div>
+        </marquee>
+    </div>
+   </div>
+</div> --}}
+
+<div class="container-fluid" style="background-color: #35363a; color: white; margin: 0; padding: 0; border: 0; height: auto;">
+    <div class="row">
+        <div class="col-md-2" style="font-weight: bold;">
+            <p style="margin-left: 5px; font-size: 20px;">{{ 'Latest News:' }}</p>
+        </div>
+        <div class="col-md-10">
+            <div class="marquee-container" style="overflow: hidden;">
+                <div class="marquee-content" style="display: inline-block;">
+                    <p>“Stay away from those people who try to disparage your ambitions. Small minds will always do that, but great minds will give you a feeling that you can become great too.” — Mark Twain</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 
 
@@ -297,10 +329,10 @@
 
 
 </style>
+
 <marquee scrollamount="20"  direction="left" >
     <div class="container">
         <div class="row">
-
             <div class="column">
                 <img src="#"alt="Mountains" onclick="myFunction(this);">
             </div>
@@ -311,7 +343,6 @@
                 <img src="#"alt="Lights" onclick="myFunction(this);">
             </div>
         </div>
-
     </div>
 </marquee>
 

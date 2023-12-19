@@ -27,7 +27,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="gallery-photo">
                         <div class="gallery-photo-bg"></div>
-                        <a href="{{ asset('uploads/'.$row->photo_name) }}" class="magnific" title="{{ asset('uploads/'.$row->photo_caption) }}">
+                        <a href="{{ asset('uploads/'.$row->photo_name) }}" class="magnific" title="{{$row->photo_caption}}">
                             <img src="{{ asset('uploads/'.$row->photo_name) }}">
                             <div class="plus-icon">
                                 <i class="fa fa-search-plus"></i>
