@@ -13,9 +13,9 @@
 <!-- Navbar-->
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{{ url('/') }}">
         <img src="{{ asset('uploads/' . $g_setting->logo) }}" width="50" height="40"
-            class="d-inline-block align-top" alt=""> Shawal Enterprise
+            class="d-inline-block align-top" alt=""> <b>Shawal Enterprise</b>
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
