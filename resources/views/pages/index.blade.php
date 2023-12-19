@@ -52,23 +52,62 @@
    </div>
 </div> --}}
 
-<div class="container-fluid" style="background-color: #35363a; color: white; margin: 0; padding: 0; border: 0; height: auto;">
-    <div class="row">
-        <div class="col-md-2" style="font-weight: bold;">
-            <p style="margin-left: 5px; font-size: 20px;">{{ 'Latest News:' }}</p>
-        </div>
-        <div class="col-md-10">
-            <div class="marquee-container" style="overflow: hidden;">
-                <div class="marquee-content" style="display: inline-block;">
-                    <p>“Website development is in progress. We will update very soon. Thank you very much for your patience.</p>
-                </div>
-            </div>
-        </div>
+
+
+<style>
+
+    .latest-news-container {
+        display: flex;
+        height: 30px;
+    }
+
+
+    #fixed-column {
+        flex: 0 0 auto;
+        background-color: #f0f0f0;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+
+    #marquee-column {
+        flex: 1;
+        overflow: hidden;
+        background-color: #3a3b45;
+    }
+
+    #marquee-text {
+        white-space: nowrap;
+        display: inline-block;
+        animation: marqueeAnimation 18s linear infinite;
+        width: 100%;
+        color: white;
+        font-size: 20px;
+    }
+
+    @keyframes marqueeAnimation {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+</style>
+
+<div class="latest-news-container">
+    <div id="fixed-column" style="color: #2e59d9">
+        Trending :
+    </div>
+    <div id="marquee-column">
+        <span id="marquee-text">
+           Website development is in progress. We will update very soon. Thank you very much for your patience.
+        </span>
     </div>
 </div>
-
-
-
 
 
 
