@@ -52,7 +52,7 @@
                                 <a class="dropdown-item" href="{{ route('front.eng-work') }}">Engineering Works</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Architectural Works</a>
+                                <a class="dropdown-item" href="{{ route('front.architectural-work') }}">Architectural Works</a>
                             </li>
                         </ul>
 
@@ -61,13 +61,13 @@
                         <a class="dropdown-item" href="#"> Consultancy </a>
                         <ul class="dropdown-menu dropdown-submenu dropdown-submenu-right">
                             <li>
-                                <a class="dropdown-item" href="#">Civil Consultancy</a>
+                                <a class="dropdown-item" href="{{ route('front.civil-consultancy') }}">Civil Consultancy</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Architecture Consultancy</a>
+                                <a class="dropdown-item" href="{{ route('front.architecture-consultancy') }}">Architecture Consultancy</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Electrical Consultancy</a>
+                                <a class="dropdown-item" href="{{ route('front.electrical-consultancy') }}">Electrical Consultancy</a>
                             </li>
                         </ul>
                     </li>
@@ -79,8 +79,8 @@
                     Alliance
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Foundation</a>
-                    <a class="dropdown-item" href="#">Research</a>
+                    <a class="dropdown-item" href="{{ route('front.foundation') }}">Foundation</a>
+                    <a class="dropdown-item" href="{{ route('front.research') }}">Research</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
