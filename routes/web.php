@@ -85,6 +85,13 @@ use App\Http\Controllers\Front\VideoGalleryController;
 use App\Http\Controllers\Front\GroupInfoController;
 use App\Http\Controllers\Front\EngineeringWorkController;
 
+use App\Http\Controllers\Front\ArchitecturalWorksController;
+use App\Http\Controllers\Front\CivilConsultancyController;
+use App\Http\Controllers\Front\ArchitectureConsultancyController;
+use App\Http\Controllers\Front\ElectricalConsultancyController;
+use App\Http\Controllers\Front\FoundationController;
+use App\Http\Controllers\Front\ResearchController;
+
 
 /* --------------------------------------- */
 /* Front End */
@@ -92,6 +99,14 @@ use App\Http\Controllers\Front\EngineeringWorkController;
 Route::get('/', [HomeController::class,'index']);
 Route::get('about', [AboutController::class,'index'])->name('front.about');
 Route::get('engineering-work', [EngineeringWorkController::class,'index'])->name('front.eng-work');
+
+Route::get('architectural-work', [ArchitecturalWorksController::class,'index'])->name('front.architectural-work');
+Route::get('civil-consultancy', [CivilConsultancyController::class,'index'])->name('front.civil-consultancy');
+Route::get('architecture-consultancy', [ArchitectureConsultancyController::class,'index'])->name('front.architecture-consultancy');
+Route::get('electrical-consultancy', [ElectricalConsultancyController::class,'index'])->name('front.electrical-consultancy');
+Route::get('foundation', [FoundationController::class,'index'])->name('front.foundation');
+Route::get('research', [ResearchController::class,'index'])->name('front.research');
+
 
 Route::get('group-info', [GroupInfoController::class,'index'])->name('front.group-info');
 Route::get('services', [ServiceControllerForFront::class,'index'])->name('front.services');
