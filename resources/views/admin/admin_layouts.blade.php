@@ -333,6 +333,25 @@
         @endif
 
 
+        <!-- Others Section -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOthers" aria-expanded="true" aria-controls="collapseOthers">
+                <i class="fas fa-user-secret"></i>
+                <span>Our Service</span>
+            </a>
+            <div id="collapseOthers" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="#">Engineering Works</a>
+                    <a class="collapse-item" href="#">Architectural Works</a>
+                    <a class="collapse-item" href="#">Civil Consultancy</a>
+                    <a class="collapse-item" href="#">Architecture Consultancy</a>
+                    <a class="collapse-item" href="#">Electrical Consultancy</a>
+                </div>
+            </div>
+        </li>
+
+
 
         <!-- Blog Section -->
         @php if( in_array('Blog Section', $arr_one) || $logged_user_role_id==1 ): @endphp
@@ -351,6 +370,9 @@
             </div>
         </li>
         @endif
+
+
+
 
 
 
@@ -399,6 +421,10 @@
             </div>
         </li>
         @endif
+
+
+
+
 
 
         <!-- Photo Gallery -->
