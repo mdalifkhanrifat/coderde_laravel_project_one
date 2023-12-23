@@ -38,6 +38,10 @@ use App\Http\Controllers\Admin\CategoryController as CategoryControllerForAdmin;
 use App\Http\Controllers\Admin\BlogController as BlogControllerForAdmin;
 use App\Http\Controllers\Admin\ProjectController as ProjectControllerForAdmin;
 use App\Http\Controllers\Admin\ServiceController as ServiceControllerForAdmin;
+use App\Http\Controllers\Admin\EngineeringWorkController as EngineeringWorkControllerForAdmin;
+
+
+
 use App\Http\Controllers\Admin\ShippingController;
 use App\Http\Controllers\Admin\SocialMediaItemController;
 use App\Http\Controllers\Admin\SubscriberController;
@@ -78,12 +82,18 @@ use App\Http\Controllers\Front\ProductController as ProductControllerForFront;
 use App\Http\Controllers\Front\ProjectController as ProjectControllerForFront;
 use App\Http\Controllers\Front\SearchController;
 use App\Http\Controllers\Front\ServiceController as ServiceControllerForFront;
+// use App\Http\Controllers\Front\EngineeringWorkController as EngineeringWorkControllerForFront;
+
+
 use App\Http\Controllers\Front\SubscriptionController;
 use App\Http\Controllers\Front\TeamMemberController as TeamMemberControllerForFront;
 use App\Http\Controllers\Front\TermController;
 use App\Http\Controllers\Front\VideoGalleryController;
 use App\Http\Controllers\Front\GroupInfoController;
-use App\Http\Controllers\Front\EngineeringWorkController;
+
+use App\Http\Controllers\Front\EngineeringWorkControllerForFront;
+use App\Http\Controllers\Admin\PageEngineeringWorkController;
+
 
 use App\Http\Controllers\Front\ArchitecturalWorksController;
 use App\Http\Controllers\Front\CivilConsultancyController;
@@ -98,7 +108,9 @@ use App\Http\Controllers\Front\ResearchController;
 /* --------------------------------------- */
 Route::get('/', [HomeController::class,'index']);
 Route::get('about', [AboutController::class,'index'])->name('front.about');
-Route::get('engineering-work', [EngineeringWorkController::class,'index'])->name('front.eng-work');
+
+Route::get('engineering-works', [EngineeringWorkControllerForFront::class,'index'])->name('front.engineering-work');
+Route::get('engineering-work/{slug}', [EngineeringWorkControllerForFront::class,'detail']);
 
 Route::get('architectural-work', [ArchitecturalWorksController::class,'index'])->name('front.architectural-work');
 Route::get('civil-consultancy', [CivilConsultancyController::class,'index'])->name('front.civil-consultancy');
@@ -111,6 +123,7 @@ Route::get('research', [ResearchController::class,'index'])->name('front.researc
 Route::get('group-info', [GroupInfoController::class,'index'])->name('front.group-info');
 Route::get('services', [ServiceControllerForFront::class,'index'])->name('front.services');
 Route::get('service/{slug}', [ServiceControllerForFront::class,'detail']);
+
 Route::get('blog', [BlogControllerForFront::class,'index'])->name('front.blogs');
 Route::get('blog/{slug}', [BlogControllerForFront::class,'detail']);
 Route::post('blog/comment', [BlogControllerForFront::class,'comment'])->name('front.comment');
@@ -364,6 +377,9 @@ Route::middleware(['admin:admin'])->group(function() {
         Route::get('/service/edit', [PageServiceController::class,'edit'])->name('admin.page_service.edit');
         Route::post('/service/update', [PageServiceController::class,'update']);
 
+        Route::get('/engineering-works/edit', [PageEngineeringWorkController::class,'edit'])->name('admin.page_engineering-work.edit');
+        Route::post('/engineering-works/update', [PageEngineeringWorkController::class,'update']);
+
         Route::get('/shop/edit', [PageShopController::class,'edit'])->name('admin.page_shop.edit');
         Route::post('/shop/update', [PageShopController::class,'update']);
 
@@ -478,6 +494,16 @@ Route::middleware(['admin:admin'])->group(function() {
     Route::get('admin/service/delete/{id}', [ServiceControllerForAdmin::class,'destroy']);
     Route::get('admin/service/edit/{id}', [ServiceControllerForAdmin::class,'edit']);
     Route::post('admin/service/update/{id}', [ServiceControllerForAdmin::class,'update']);
+
+     /* --------------------------------------- */
+    /* Service - Admin */
+    /* --------------------------------------- */
+    Route::get('admin/engineering-work/view', [EngineeringWorkControllerForAdmin::class,'index'])->name('admin.engineering-work.index');
+    Route::get('admin/engineering-work/create', [EngineeringWorkControllerForAdmin::class,'create'])->name('admin.engineering-work.create');
+    Route::post('admin/engineering-work/store', [EngineeringWorkControllerForAdmin::class,'store'])->name('admin.engineering-work.store');
+    Route::get('admin/engineering-work/delete/{id}', [EngineeringWorkControllerForAdmin::class,'destroy']);
+    Route::get('admin/engineering-work/edit/{id}', [EngineeringWorkControllerForAdmin::class,'edit']);
+    Route::post('admin/engineering-work/update/{id}', [EngineeringWorkControllerForAdmin::class,'update']);
 
 
     /* --------------------------------------- */
