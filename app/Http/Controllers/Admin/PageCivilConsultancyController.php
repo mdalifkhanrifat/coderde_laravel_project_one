@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\PageEngineeringWorksItem;
+use App\Models\PageCivilConsultancyItem;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use DB;
 
-class PageEngineeringWorkController extends Controller
+class PageCivilConsultancyController extends Controller
 {
     public function edit()
     {
-        $engineering_work = PageEngineeringWorksItem::where('id',1)->first();
-        return view('admin.page_setting.page_engineering_work', compact('engineering_work'));
+        $engineering_work = PageCivilConsultancyItem::where('id',1)->first();
+        return view('admin.page_setting.page_civil_consultancy', compact('engineering_work'));
     }
 
     public function update(Request $request)
@@ -28,7 +28,7 @@ class PageEngineeringWorkController extends Controller
         $data['seo_title'] = $request->input('seo_title');
         $data['seo_meta_description'] = $request->input('seo_meta_description');
 
-        PageEngineeringWorksItem::where('id',1)->update($data);
+        PageCivilConsultancyItem::where('id',1)->update($data);
 
         return redirect()->back()->with('success', 'Service Page Content is updated successfully!');
 

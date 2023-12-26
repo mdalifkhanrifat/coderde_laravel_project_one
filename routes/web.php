@@ -38,7 +38,14 @@ use App\Http\Controllers\Admin\CategoryController as CategoryControllerForAdmin;
 use App\Http\Controllers\Admin\BlogController as BlogControllerForAdmin;
 use App\Http\Controllers\Admin\ProjectController as ProjectControllerForAdmin;
 use App\Http\Controllers\Admin\ServiceController as ServiceControllerForAdmin;
+
 use App\Http\Controllers\Admin\EngineeringWorkController as EngineeringWorkControllerForAdmin;
+use App\Http\Controllers\Admin\ArchitecturalWorkController as ArchitecturalWorkControllerForAdmin;
+use App\Http\Controllers\Admin\ArchitecturalConsultancyController as ArchitecturalConsultancyControllerForAdmin;
+use App\Http\Controllers\Admin\ElectricalConsultancyController as ElectricalConsultancyControllerForAdmin;
+use App\Http\Controllers\Admin\CivilConsultancyController as CivilConsultancyControllerForAdmin;
+
+
 
 
 
@@ -95,10 +102,26 @@ use App\Http\Controllers\Front\EngineeringWorkControllerForFront;
 use App\Http\Controllers\Admin\PageEngineeringWorkController;
 
 
-use App\Http\Controllers\Front\ArchitecturalWorksController;
-use App\Http\Controllers\Front\CivilConsultancyController;
-use App\Http\Controllers\Front\ArchitectureConsultancyController;
-use App\Http\Controllers\Front\ElectricalConsultancyController;
+use App\Http\Controllers\Front\ArchitecturalWorksControllerForFront;
+use App\Http\Controllers\Admin\PageArchitecturalWorksController;
+
+use App\Http\Controllers\Front\ArchitecturalConsultancyControllerForFront;
+use App\Http\Controllers\Admin\PageArchitecturalConsultancyController;
+
+use App\Http\Controllers\Front\ElectricalConsultancyControllerForFront;
+use App\Http\Controllers\Admin\PageElectricalConsultancyController;
+
+use App\Http\Controllers\Front\CivilConsultancyControllerForFront;
+use App\Http\Controllers\Admin\PageCivilConsultancyController;
+
+
+// use App\Http\Controllers\Front\CivilConsultancyController;
+
+// use App\Http\Controllers\Front\ArchitectureConsultancyController;
+
+// use App\Http\Controllers\Front\ElectricalConsultancyController;
+
+
 use App\Http\Controllers\Front\FoundationController;
 use App\Http\Controllers\Front\ResearchController;
 
@@ -112,10 +135,27 @@ Route::get('about', [AboutController::class,'index'])->name('front.about');
 Route::get('engineering-works', [EngineeringWorkControllerForFront::class,'index'])->name('front.engineering-work');
 Route::get('engineering-work/{slug}', [EngineeringWorkControllerForFront::class,'detail']);
 
-Route::get('architectural-work', [ArchitecturalWorksController::class,'index'])->name('front.architectural-work');
-Route::get('civil-consultancy', [CivilConsultancyController::class,'index'])->name('front.civil-consultancy');
-Route::get('architecture-consultancy', [ArchitectureConsultancyController::class,'index'])->name('front.architecture-consultancy');
-Route::get('electrical-consultancy', [ElectricalConsultancyController::class,'index'])->name('front.electrical-consultancy');
+Route::get('architectural-works', [ArchitecturalWorksControllerForFront::class,'index'])->name('front.architectural-work');
+Route::get('architectural-work/{slug}', [ArchitecturalWorksControllerForFront::class,'detail']);
+
+Route::get('architecture-consultancys', [ArchitecturalConsultancyControllerForFront::class,'index'])->name('front.architecture-consultancy');
+Route::get('architecture-consultancy/{slug}', [ArchitecturalConsultancyControllerForFront::class,'detail']);
+
+Route::get('electrical-consultancys', [ElectricalConsultancyControllerForFront::class,'index'])->name('front.electrical-consultancy');
+Route::get('electrical-consultancy/{slug}', [ElectricalConsultancyControllerForFront::class,'detail']);
+
+Route::get('civil-consultancys', [CivilConsultancyControllerForFront::class,'index'])->name('front.civil-consultancy');
+Route::get('civil-consultancy/{slug}', [CivilConsultancyControllerForFront::class,'detail']);
+
+
+// Route::get('civil-consultancy', [CivilConsultancyController::class,'index'])->name('front.civil-consultancy');
+
+// Route::get('architecture-consultancy', [ArchitectureConsultancyController::class,'index'])->name('front.architecture-consultancy');
+
+// Route::get('electrical-consultancy', [ElectricalConsultancyController::class,'index'])->name('front.electrical-consultancy');
+
+
+
 Route::get('foundation', [FoundationController::class,'index'])->name('front.foundation');
 Route::get('research', [ResearchController::class,'index'])->name('front.research');
 
@@ -380,6 +420,18 @@ Route::middleware(['admin:admin'])->group(function() {
         Route::get('/engineering-works/edit', [PageEngineeringWorkController::class,'edit'])->name('admin.page_engineering-work.edit');
         Route::post('/engineering-works/update', [PageEngineeringWorkController::class,'update']);
 
+        Route::get('/architectural-works/edit', [PageArchitecturalWorksController::class,'edit'])->name('admin.architectural-work.edit');
+        Route::post('/architectural-works/update', [PageArchitecturalWorksController::class,'update']);
+
+        Route::get('/architectural-consultancys/edit', [PageArchitecturalConsultancyController::class,'edit'])->name('admin.page_architectural-consultancy.edit');
+        Route::post('/architectural-consultancys/update', [PageArchitecturalConsultancyController::class,'update']);
+
+        Route::get('/electrical-consultancys/edit', [PageElectricalConsultancyController::class,'edit'])->name('admin.page_electrical-consultancy.edit');
+        Route::post('/electrical-consultancys/update', [PageElectricalConsultancyController::class,'update']);
+
+        Route::get('/civil-consultancys/edit', [PageCivilConsultancyController::class,'edit'])->name('admin.page_civil-consultancy.edit');
+        Route::post('/civil-consultancys/update', [PageCivilConsultancyController::class,'update']);
+
         Route::get('/shop/edit', [PageShopController::class,'edit'])->name('admin.page_shop.edit');
         Route::post('/shop/update', [PageShopController::class,'update']);
 
@@ -495,8 +547,8 @@ Route::middleware(['admin:admin'])->group(function() {
     Route::get('admin/service/edit/{id}', [ServiceControllerForAdmin::class,'edit']);
     Route::post('admin/service/update/{id}', [ServiceControllerForAdmin::class,'update']);
 
-     /* --------------------------------------- */
-    /* Service - Admin */
+    /* --------------------------------------- */
+    /* Engineering work - Admin */
     /* --------------------------------------- */
     Route::get('admin/engineering-work/view', [EngineeringWorkControllerForAdmin::class,'index'])->name('admin.engineering-work.index');
     Route::get('admin/engineering-work/create', [EngineeringWorkControllerForAdmin::class,'create'])->name('admin.engineering-work.create');
@@ -504,6 +556,50 @@ Route::middleware(['admin:admin'])->group(function() {
     Route::get('admin/engineering-work/delete/{id}', [EngineeringWorkControllerForAdmin::class,'destroy']);
     Route::get('admin/engineering-work/edit/{id}', [EngineeringWorkControllerForAdmin::class,'edit']);
     Route::post('admin/engineering-work/update/{id}', [EngineeringWorkControllerForAdmin::class,'update']);
+
+    
+    /* --------------------------------------- */
+    /* Architectural work - Admin */
+    /* --------------------------------------- */
+    Route::get('admin/architectural-work/view', [ArchitecturalWorkControllerForAdmin::class,'index'])->name('admin.architectural-work.index');
+    Route::get('admin/architectural-work/create', [ArchitecturalWorkControllerForAdmin::class,'create'])->name('admin.architectural-work.create');
+    Route::post('admin/architectural-work/store', [ArchitecturalWorkControllerForAdmin::class,'store'])->name('admin.architectural-work.store');
+    Route::get('admin/architectural-work/delete/{id}', [ArchitecturalWorkControllerForAdmin::class,'destroy']);
+    Route::get('admin/architectural-work/edit/{id}', [ArchitecturalWorkControllerForAdmin::class,'edit']);
+    Route::post('admin/architectural-work/update/{id}', [ArchitecturalWorkControllerForAdmin::class,'update']);
+
+
+    /* --------------------------------------- */
+    /* Architectural Consultancy - Admin */
+    /* --------------------------------------- */
+    Route::get('admin/architectural-consultancy/view', [ArchitecturalConsultancyControllerForAdmin::class,'index'])->name('admin.architectural-consultancy.index');
+    Route::get('admin/architectural-consultancy/create', [ArchitecturalConsultancyControllerForAdmin::class,'create'])->name('admin.architectural-consultancy.create');
+    Route::post('admin/architectural-consultancy/store', [ArchitecturalConsultancyControllerForAdmin::class,'store'])->name('admin.architectural-consultancy.store');
+    Route::get('admin/architectural-consultancy/delete/{id}', [ArchitecturalConsultancyControllerForAdmin::class,'destroy']);
+    Route::get('admin/architectural-consultancy/edit/{id}', [ArchitecturalConsultancyControllerForAdmin::class,'edit']);
+    Route::post('admin/architectural-consultancy/update/{id}', [ArchitecturalConsultancyControllerForAdmin::class,'update']);
+
+
+    /* --------------------------------------- */
+    /* Electrical Consultancy - Admin */
+    /* --------------------------------------- */
+    Route::get('admin/electrical-consultancy/view', [ElectricalConsultancyControllerForAdmin::class,'index'])->name('admin.electrical-consultancy.index');
+    Route::get('admin/electrical-consultancy/create', [ElectricalConsultancyControllerForAdmin::class,'create'])->name('admin.electrical-consultancy.create');
+    Route::post('admin/electrical-consultancy/store', [ElectricalConsultancyControllerForAdmin::class,'store'])->name('admin.electrical-consultancy.store');
+    Route::get('admin/electrical-consultancy/delete/{id}', [ElectricalConsultancyControllerForAdmin::class,'destroy']);
+    Route::get('admin/electrical-consultancy/edit/{id}', [ElectricalConsultancyControllerForAdmin::class,'edit']);
+    Route::post('admin/electrical-consultancy/update/{id}', [ElectricalConsultancyControllerForAdmin::class,'update']);
+
+
+    /* --------------------------------------- */
+    /* Civil Consultancy - Admin */
+    /* --------------------------------------- */
+    Route::get('admin/civil-consultancy/view', [CivilConsultancyControllerForAdmin::class,'index'])->name('admin.civil-consultancy.index');
+    Route::get('admin/civil-consultancy/create', [CivilConsultancyControllerForAdmin::class,'create'])->name('admin.civil-consultancy.create');
+    Route::post('admin/civil-consultancy/store', [CivilConsultancyControllerForAdmin::class,'store'])->name('admin.civil-consultancy.store');
+    Route::get('admin/civil-consultancy/delete/{id}', [CivilConsultancyControllerForAdmin::class,'destroy']);
+    Route::get('admin/civil-consultancy/edit/{id}', [CivilConsultancyControllerForAdmin::class,'edit']);
+    Route::post('admin/civil-consultancy/update/{id}', [CivilConsultancyControllerForAdmin::class,'update']);
 
 
     /* --------------------------------------- */
