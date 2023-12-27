@@ -13,6 +13,13 @@
     $total_pending_orders = DB::table('orders')->where('payment_status','Pending')->count();
     $total_engineering_work_post = DB::table('engineering_works')->count();
 
+    $total_architectural_work_post = DB::table('architectural_works')->count();
+    $total_architectural_consultancy_post = DB::table('architectural_consultancies')->count();
+    $total_electrical_consultancy_post = DB::table('electrical_consultancies')->count();
+    $total_civil_consultancy_post = DB::table('civil_consultancies')->count();
+
+
+
     @endphp
 
     <div class="row">
@@ -160,6 +167,70 @@
                         <div class="col mr-2">
                             <div class="h4 font-weight-bold text-success mb-1">Engineering Work Post</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $total_engineering_work_post }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar-alt fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h4 font-weight-bold text-success mb-1"> architectural Work Post</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $total_architectural_work_post }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar-alt fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h4 font-weight-bold text-success mb-1">Architectural Consultancies Post</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $total_architectural_consultancy_post }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar-alt fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h4 font-weight-bold text-success mb-1">Electrical Consultancy Post</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $total_electrical_consultancy_post }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar-alt fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h4 font-weight-bold text-success mb-1">Civil Consultancy Post</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $total_civil_consultancy_post }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-calendar-alt fa-2x text-gray-300"></i>

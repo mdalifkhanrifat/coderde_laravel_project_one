@@ -1,12 +1,12 @@
 @extends('admin.admin_layouts')
 @section('admin_content')
-    <h1 class="h3 mb-3 text-gray-800">Engineering Work</h1>
+    <h1 class="h3 mb-3 text-gray-800">Civil Consultancy</h1>
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 mt-2 font-weight-bold text-primary">View Engineering Work</h6>
+            <h6 class="m-0 mt-2 font-weight-bold text-primary">View Civil Consultancy</h6>
             <div class="float-right d-inline">
-                <a href="{{ route('admin.engineering-work.create') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add New</a>
+                <a href="{{ route('admin.civil-consultancy.create') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add New</a>
             </div>
         </div>
         <div class="card-body">
@@ -21,14 +21,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach($engineering_work as $row)
+                        @foreach($civil_consultancy as $row)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td><img src="{{ asset('uploads/'.$row->photo) }}" alt="" class="w_200"></td>
                             <td>{{ $row->name }}</td>
                             <td>
-                                <a href="{{ URL::to('admin/engineering-work/edit/'.$row->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                                <a href="{{ URL::to('admin/engineering-work/delete/'.$row->id) }}" class="btn btn-danger btn-sm" onClick="return confirm('Are you sure?');"><i class="fas fa-trash-alt"></i></a>
+                                <a href="{{ URL::to('admin/civil-consultancy/edit/'.$row->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                                <a href="{{ URL::to('admin/civil-consultancy/delete/'.$row->id) }}" class="btn btn-danger btn-sm" onClick="return confirm('Are you sure?');"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                         @endforeach

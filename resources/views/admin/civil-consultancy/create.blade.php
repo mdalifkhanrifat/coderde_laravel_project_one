@@ -1,14 +1,14 @@
 @extends('admin.admin_layouts')
 @section('admin_content')
-    <h1 class="h3 mb-3 text-gray-800">Add engineering work</h1>
+    <h1 class="h3 mb-3 text-gray-800">Add Civil Consulancy</h1>
 
-    <form action="{{ route('admin.engineering-work.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin.civil-consultancy.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 mt-2 font-weight-bold text-primary">Add Service</h6>
+                <h6 class="m-0 mt-2 font-weight-bold text-primary">Add Civil Consulancy</h6>
                 <div class="float-right d-inline">
-                    <a href="{{ route('admin.engineering-work.index') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> View All</a>
+                    <a href="{{ route('admin.civil-consultancy.index') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>View All</a>
                 </div>
             </div>
             <div class="card-body">
