@@ -13,13 +13,13 @@ class CivilConsultancyController extends Controller
 {
     public function index()
     {
-        $engineering_work = CivilConsultancy::all();
-        return view('admin.engineering-work.index', compact('engineering_work'));
+        $civil_consultancy = CivilConsultancy::all();
+        return view('admin.civil-consultancy.index', compact('civil_consultancy'));
     }
 
     public function create()
     {
-        return view('admin.engineering-work.create');
+        return view('admin.civil-consultancy.create');
     }
 
     public function store(Request $request)
@@ -28,8 +28,8 @@ class CivilConsultancyController extends Controller
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
         
-        $engineering_work = new CivilConsultancy();
-        $data = $request->only($engineering_work->getFillable());
+        $civil_consultancy = new CivilConsultancy();
+        $data = $request->only($civil_consultancy->getFillable());
 
         $request->validate([
             'name' => 'required|unique:engineering_works',
@@ -50,14 +50,14 @@ class CivilConsultancyController extends Controller
 
         // dd($data);
 
-        $engineering_work->fill($data)->save();
-        return redirect()->route('admin.engineering-work.index')->with('success', 'Service is added successfully!');
+        $civil_consultancy->fill($data)->save();
+        return redirect()->route('admin.civil-consultancy.index')->with('success', 'Service is added successfully!');
     }
 
     public function edit($id)
     {
-        $engineering_work = CivilConsultancy::findOrFail($id);
-        return view('admin.engineering-work.edit', compact('engineering_work'));
+        $civil_consultancy = CivilConsultancy::findOrFail($id);
+        return view('admin.civil-consultancy.edit', compact('civil_consultancy'));
     }
 
     public function update(Request $request, $id)
@@ -66,8 +66,8 @@ class CivilConsultancyController extends Controller
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
         
-        $engineering_work = CivilConsultancy::findOrFail($id);
-        $data = $request->only($engineering_work->getFillable());
+        $civil_consultancy = CivilConsultancy::findOrFail($id);
+        $data = $request->only($civil_consultancy->getFillable());
 
         if($request->hasFile('photo')) {
             $request->validate([
@@ -80,7 +80,7 @@ class CivilConsultancyController extends Controller
                 ],
                 'photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
             ]);
-            unlink(public_path('uploads/'.$engineering_work->photo));
+            unlink(public_path('uploads/'.$civil_consultancy->photo));
             $ext = $request->file('photo')->extension();
             $final_name = 'service-'.$id.'.'.$ext;
             $request->file('photo')->move(public_path('uploads/'), $final_name);
@@ -95,13 +95,13 @@ class CivilConsultancyController extends Controller
                     Rule::unique('engineering_works')->ignore($id),
                 ]
             ]);
-            $data['photo'] = $engineering_work->photo;
+            $data['photo'] = $civil_consultancy->photo;
         }
 
         // dd($data);
 
-        $engineering_work->fill($data)->save();
-        return redirect()->route('admin.engineering-work.index')->with('success', 'Service is updated successfully!');
+        $civil_consultancy->fill($data)->save();
+        return redirect()->route('admin.civil-consultancy.index')->with('success', 'Service is updated successfully!');
     }
 
     public function destroy($id)
@@ -110,9 +110,9 @@ class CivilConsultancyController extends Controller
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
         
-        $engineering_work = CivilConsultancy::findOrFail($id);
-        unlink(public_path('uploads/'.$engineering_work->photo));
-        $engineering_work->delete();
+        $civil_consultancy = CivilConsultancy::findOrFail($id);
+        unlink(public_path('uploads/'.$civil_consultancy->photo));
+        $civil_consultancy->delete();
         return Redirect()->back()->with('success', 'Service is deleted successfully!');
     }
 }

@@ -1,12 +1,12 @@
 @extends('admin.admin_layouts')
 @section('admin_content')
-    <h1 class="h3 mb-3 text-gray-800">Edit engineering work</h1>
+    <h1 class="h3 mb-3 text-gray-800">Edit Electrical Consultancy</h1>
 
-    <form action="{{ url('admin/engineering-work/update/'.$engineering_work->id) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ url('admin/electrical-consultancy/update/'.$electrical_consultancy->id) }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 mt-2 font-weight-bold text-primary">Edit Engineering Work</h6>
+                <h6 class="m-0 mt-2 font-weight-bold text-primary">Edit Electrical Consultancy</h6>
                 <div class="float-right d-inline">
                     <a href="{{ route('admin.engineering-work.index') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> View All</a>
                 </div>
@@ -14,24 +14,24 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="">Name *</label>
-                    <input type="text" name="name" class="form-control" value="{{ $engineering_work->name }}" autofocus>
+                    <input type="text" name="name" class="form-control" value="{{ $electrical_consultancy->name }}" autofocus>
                 </div>
                 <div class="form-group">
                     <label for="">Slug</label>
-                    <input type="text" name="slug" class="form-control" value="{{ $engineering_work->slug }}">
+                    <input type="text" name="slug" class="form-control" value="{{ $electrical_consultancy->slug }}">
                 </div>
                 <div class="form-group">
                     <label for="">Description</label>
-                    <textarea name="description" class="form-control editor" cols="30" rows="10">{{ $engineering_work->description }}</textarea>
+                    <textarea name="description" class="form-control editor" cols="30" rows="10">{{ $electrical_consultancy->description }}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="">Short Description</label>
-                    <textarea name="short_description" class="form-control h_100" cols="30" rows="10">{{ $engineering_work->short_description }}</textarea>
+                    <textarea name="short_description" class="form-control h_100" cols="30" rows="10">{{ $electrical_consultancy->short_description }}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="">Existing Photo</label>
                     <div>
-                        <img src="{{ asset('uploads/'.$engineering_work->photo) }}" alt="" class="w_200">
+                        <img src="{{ asset('uploads/'.$electrical_consultancy->photo) }}" alt="" class="w_200">
                     </div>
                 </div>
                 <div class="form-group">
@@ -62,11 +62,11 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="">Title</label>
-                    <input type="text" name="seo_title" class="form-control" value="{{ $engineering_work->seo_title }}">
+                    <input type="text" name="seo_title" class="form-control" value="{{ $electrical_consultancy->seo_title }}">
                 </div>
                 <div class="form-group">
                     <label for="">Meta Description</label>
-                    <textarea name="seo_meta_description" class="form-control h_100" cols="30" rows="10">{{ $engineering_work->seo_meta_description }}</textarea>
+                    <textarea name="seo_meta_description" class="form-control h_100" cols="30" rows="10">{{ $electrical_consultancy->seo_meta_description }}</textarea>
                 </div>
                 <button type="submit" class="btn btn-success">Update</button>
             </div>

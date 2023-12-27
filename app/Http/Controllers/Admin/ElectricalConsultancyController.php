@@ -31,9 +31,9 @@ class ElectricalConsultancyController extends Controller
        $electrical_consultancy = new ElectricalConsultancy();
         $data = $request->only($electrical_consultancy->getFillable());
 
-        $request->validate([
-            'name' => 'required|unique:engineering_works',
-            'slug' => 'unique:engineering_works',
+        $request->validate([ 
+            'name' => 'required|unique:electrical_consultancies',
+            'slug' => 'unique:electrical_consultancies',
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
@@ -44,20 +44,20 @@ class ElectricalConsultancyController extends Controller
         $statement = DB::select("SHOW TABLE STATUS LIKE 'engineering_works'");
         $ai_id = $statement[0]->Auto_increment;
         $ext = $request->file('photo')->extension();
-        $final_name = 'engineering_work-'.$ai_id.'.'.$ext;
+        $final_name = 'electrical_consultancy-'.$ai_id.'.'.$ext;
         $request->file('photo')->move(public_path('uploads/'), $final_name);
         $data['photo'] = $final_name;
 
         // dd($data);
 
-        $engineering_work->fill($data)->save();
-        return redirect()->route('admin.engineering-work.index')->with('success', 'Service is added successfully!');
+        $electrical_consultancy->fill($data)->save();
+        return redirect()->route('admin.electrical-consultancy.index')->with('success', 'Service is added successfully!');
     }
 
     public function edit($id)
     {
-        $engineering_work = ElectricalConsultancy::findOrFail($id);
-        return view('admin.electrical-consultancy.edit', compact('engineering_work'));
+        $electrical_consultancy = ElectricalConsultancy::findOrFail($id);
+        return view('admin.electrical-consultancy.edit', compact('electrical_consultancy'));
     }
 
     public function update(Request $request, $id)
@@ -66,21 +66,21 @@ class ElectricalConsultancyController extends Controller
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
         
-        $engineering_work = ElectricalConsultancy::findOrFail($id);
-        $data = $request->only($engineering_work->getFillable());
+        $electrical_consultancy = ElectricalConsultancy::findOrFail($id);
+        $data = $request->only($electrical_consultancy->getFillable());
 
         if($request->hasFile('photo')) {
             $request->validate([
                 'name'   =>  [
                     'required',
-                    Rule::unique('engineering_works')->ignore($id),
+                    Rule::unique('electrical_consultancies')->ignore($id),
                 ],
                 'slug'   =>  [
-                    Rule::unique('engineering_works')->ignore($id),
+                    Rule::unique('electrical_consultancies')->ignore($id),
                 ],
                 'photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
             ]);
-            unlink(public_path('uploads/'.$engineering_work->photo));
+            unlink(public_path('uploads/'.$electrical_consultancy->photo));
             $ext = $request->file('photo')->extension();
             $final_name = 'service-'.$id.'.'.$ext;
             $request->file('photo')->move(public_path('uploads/'), $final_name);
@@ -89,19 +89,19 @@ class ElectricalConsultancyController extends Controller
             $request->validate([
                 'name'   =>  [
                     'required',
-                    Rule::unique('engineering_works')->ignore($id),
+                    Rule::unique('electrical_consultancies')->ignore($id),
                 ],
                 'slug'   =>  [
-                    Rule::unique('engineering_works')->ignore($id),
+                    Rule::unique('electrical_consultancies')->ignore($id),
                 ]
             ]);
-            $data['photo'] = $engineering_work->photo;
+            $data['photo'] = $electrical_consultancy->photo;
         }
 
         // dd($data);
 
-        $engineering_work->fill($data)->save();
-        return redirect()->route('admin.engineering-work.index')->with('success', 'Service is updated successfully!');
+        $electrical_consultancy->fill($data)->save();
+        return redirect()->route('admin.electrical-consultancy.index')->with('success', 'Service is updated successfully!');
     }
 
     public function destroy($id)
@@ -110,9 +110,9 @@ class ElectricalConsultancyController extends Controller
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
         
-        $engineering_work = ElectricalConsultancy::findOrFail($id);
-        unlink(public_path('uploads/'.$engineering_work->photo));
-        $engineering_work->delete();
+        $electrical_consultancy = ElectricalConsultancy::findOrFail($id);
+        unlink(public_path('uploads/'.$electrical_consultancy->photo));
+        $electrical_consultancy->delete();
         return Redirect()->back()->with('success', 'Service is deleted successfully!');
     }
 }

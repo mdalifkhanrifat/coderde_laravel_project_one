@@ -19,20 +19,20 @@ class ArchitecturalConsultancyControllerForFront extends Controller
     public function index()
     {
         $g_setting = DB::table('general_settings')->where('id', 1)->first();
-        $eng_work_items = DB::table('engineering_works')->paginate(9);
-        $eng_work = DB::table('page_engineering_works_items')->where('id', 1)->first();
+        $arc_cons_items = DB::table('architectural_consultancies')->paginate(9);
+        $arc_cons = DB::table('page_architectural_consultancy_items')->where('id', 1)->first();
 
-        return view('pages.engineering_Work', compact('eng_work_items','g_setting','eng_work'));
+        return view('pages.architecture_consultancy', compact('arc_cons_items','g_setting','arc_cons'));
     }
 
     public function detail($slug)
     {
         $g_setting = DB::table('general_settings')->where('id', 1)->first();
-        $eng_works_detail = DB::table('engineering_works')->where('slug', $slug)->first();
-        $service_items = DB::table('engineering_works')->get();
-        if(!$eng_works_detail) {
+        $arc_cons_detail = DB::table('architectural_consultancies')->where('slug', $slug)->first();
+        $arc_cons_items = DB::table('architectural_consultancies')->get();
+        if(!$arc_cons_detail) {
             return abort(404);
         }
-        return view('pages.engineering_work_detail', compact('g_setting','eng_works_detail','service_items'));
+        return view('pages.architecture_consultancy_detail', compact('g_setting','arc_cons_detail','arc_cons_items'));
     }
 }

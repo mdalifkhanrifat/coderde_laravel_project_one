@@ -344,9 +344,9 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{ route('admin.engineering-work.index') }}">Engineering Works</a>
                     <a class="collapse-item" href="{{ route('admin.architectural-work.index') }}">Architectural Works</a>
-                    <a class="collapse-item" href="#">Civil Consultancy</a>
-                    <a class="collapse-item" href="#">Architecture Consultancy</a>
-                    <a class="collapse-item" href="#">Electrical Consultancy</a>
+                    <a class="collapse-item" href="{{ route('admin.architectural-consultancy.index') }}">Civil Consultancy</a>
+                    <a class="collapse-item" href="{{ route('admin.electrical-consultancy.index') }}">Architecture Consultancy</a>
+                    <a class="collapse-item" href="{{ route('admin.civil-consultancy.index') }}">Electrical Consultancy</a>
                 </div>
             </div>
         </li>
