@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="page-banner" style="background-image: url({{ asset('uploads/'.$g_setting->banner_engineering_work_detail) }})">
+    <div class="page-banner" style="background-image: url({{ asset('uploads/'.$g_setting->banner_architectural_consultancy_detail) }})">
         <div class="bg-page"></div>
         <div class="text">
             <h1>{{ $arc_cons_detail->name }}</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">{{ HOME }}</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('front.engineering-work') }}"> {{"Engineering-Works"}} </a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('front.architecture-consultancy') }}"> {{"Architecture-Consultancy"}} </a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{ $arc_cons_detail->name }}</li>
                 </ol>
             </nav>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="page-banner" style="background-image: url({{ asset('uploads/'.$g_setting->banner_engineering_work) }})">
+    <div class="page-banner" style="background-image: url({{ asset('uploads/'.$g_setting->banner_architectural_consultancy ) }})">
         <div class="bg-page"></div>
         <div class="text">
             <h1>{{ $arc_cons->name }}</h1>
