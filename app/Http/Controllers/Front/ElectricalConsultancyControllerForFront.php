@@ -19,20 +19,20 @@ class ElectricalConsultancyControllerForFront extends Controller
     public function index()
     {
         $g_setting = DB::table('general_settings')->where('id', 1)->first();
-        $eng_work_items = DB::table('engineering_works')->paginate(9);
-        $eng_work = DB::table('page_engineering_works_items')->where('id', 1)->first();
+        $ele_cons_items = DB::table('electrical_consultancies')->paginate(9);
+        $ele_cons = DB::table('page_electrical_consultancy_items')->where('id', 1)->first();
 
-        return view('pages.engineering_Work', compact('eng_work_items','g_setting','eng_work'));
+        return view('pages.electrical_consultancy', compact('ele_cons_items','g_setting','ele_cons'));
     }
 
     public function detail($slug)
     {
         $g_setting = DB::table('general_settings')->where('id', 1)->first();
-        $eng_works_detail = DB::table('engineering_works')->where('slug', $slug)->first();
-        $service_items = DB::table('engineering_works')->get();
-        if(!$eng_works_detail) {
+        $ele_cons_detail = DB::table('electrical_consultancies')->where('slug', $slug)->first();
+        $ele_cons_items = DB::table('electrical_consultancies')->get();
+        if(!$ele_cons_items) {
             return abort(404);
         }
-        return view('pages.engineering_work_detail', compact('g_setting','eng_works_detail','service_items'));
+        return view('pages.electrical_consultancy_detail', compact('g_setting','ele_cons_detail','ele_cons_items'));
     }
 }

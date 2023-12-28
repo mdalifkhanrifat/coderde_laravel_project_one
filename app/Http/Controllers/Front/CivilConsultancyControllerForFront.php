@@ -19,20 +19,20 @@ class CivilConsultancyControllerForFront extends Controller
     public function index()
     {
         $g_setting = DB::table('general_settings')->where('id', 1)->first();
-        $eng_work_items = DB::table('engineering_works')->paginate(9);
-        $eng_work = DB::table('page_engineering_works_items')->where('id', 1)->first();
+        $civil_cons_items = DB::table('civil_consultancies')->paginate(9);
+        $civil_cons = DB::table('page_civil_consultancy_items')->where('id', 1)->first();
 
-        return view('pages.engineering_Work', compact('eng_work_items','g_setting','eng_work'));
+        return view('pages.civil_consultancy', compact('civil_cons_items','g_setting','civil_cons'));
     }
 
     public function detail($slug)
     {
         $g_setting = DB::table('general_settings')->where('id', 1)->first();
-        $eng_works_detail = DB::table('engineering_works')->where('slug', $slug)->first();
-        $service_items = DB::table('engineering_works')->get();
-        if(!$eng_works_detail) {
+        $civil_cons_detail = DB::table('civil_consultancies')->where('slug', $slug)->first();
+        $civil_cons_items = DB::table('civil_consultancies')->get();
+        if(!$civil_cons_detail) {
             return abort(404);
         }
-        return view('pages.engineering_work_detail', compact('g_setting','eng_works_detail','service_items'));
+        return view('pages.civil_consultancy_detail', compact('g_setting','civil_cons_detail','civil_cons_items'));
     }
 }
