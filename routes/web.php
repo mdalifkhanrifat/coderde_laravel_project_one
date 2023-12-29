@@ -45,10 +45,6 @@ use App\Http\Controllers\Admin\ArchitecturalConsultancyController as Architectur
 use App\Http\Controllers\Admin\ElectricalConsultancyController as ElectricalConsultancyControllerForAdmin;
 use App\Http\Controllers\Admin\CivilConsultancyController as CivilConsultancyControllerForAdmin;
 
-
-
-
-
 use App\Http\Controllers\Admin\ShippingController;
 use App\Http\Controllers\Admin\SocialMediaItemController;
 use App\Http\Controllers\Admin\SubscriberController;
@@ -113,13 +109,8 @@ use App\Http\Controllers\Admin\PageElectricalConsultancyController;
 
 use App\Http\Controllers\Front\CivilConsultancyControllerForFront;
 use App\Http\Controllers\Admin\PageCivilConsultancyController;
+use App\Http\Controllers\Admin\MarqueeController;
 
-
-// use App\Http\Controllers\Front\CivilConsultancyController;
-
-// use App\Http\Controllers\Front\ArchitectureConsultancyController;
-
-// use App\Http\Controllers\Front\ElectricalConsultancyController;
 
 
 use App\Http\Controllers\Front\FoundationController;
@@ -146,14 +137,6 @@ Route::get('electrical-consultancy/{slug}', [ElectricalConsultancyControllerForF
 
 Route::get('civil-consultancys', [CivilConsultancyControllerForFront::class,'index'])->name('front.civil-consultancy');
 Route::get('civil-consultancy/{slug}', [CivilConsultancyControllerForFront::class,'detail']);
-
-
-// Route::get('civil-consultancy', [CivilConsultancyController::class,'index'])->name('front.civil-consultancy');
-
-// Route::get('architecture-consultancy', [ArchitectureConsultancyController::class,'index'])->name('front.architecture-consultancy');
-
-// Route::get('electrical-consultancy', [ElectricalConsultancyController::class,'index'])->name('front.electrical-consultancy');
-
 
 
 Route::get('foundation', [FoundationController::class,'index'])->name('front.foundation');
@@ -431,6 +414,11 @@ Route::middleware(['admin:admin'])->group(function() {
 
         Route::get('/civil-consultancys/edit', [PageCivilConsultancyController::class,'edit'])->name('admin.page_civil-consultancy.edit');
         Route::post('/civil-consultancys/update', [PageCivilConsultancyController::class,'update']);
+
+        Route::get('/marquee/edit', [MarqueeController::class,'edit'])->name('admin.page_marquee.edit');
+        Route::post('/marquees/update', [MarqueeController::class,'update']);
+
+
 
         Route::get('/shop/edit', [PageShopController::class,'edit'])->name('admin.page_shop.edit');
         Route::post('/shop/update', [PageShopController::class,'update']);

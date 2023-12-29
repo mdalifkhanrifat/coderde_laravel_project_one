@@ -98,17 +98,18 @@
     }
 </style>
 
-<div class="latest-news-container">
-    <div id="fixed-column" style="color: #2e59d9">
-        Trending :
+@if($marquee->status == 'Show')
+    <div class="latest-news-container">
+        <div id="fixed-column" style="color: #2e59d9">
+            Trending :
+        </div>
+        <div id="marquee-column">
+            <span id="marquee-text">
+                {{$marquee->detail}}
+            </span>
+        </div>
     </div>
-    <div id="marquee-column">
-        <span id="marquee-text">
-           Website development is in progress. We will update very soon. Thank you very much for your patience.
-        </span>
-    </div>
-</div>
-
+@endif
 
 
 
