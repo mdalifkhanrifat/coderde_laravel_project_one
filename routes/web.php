@@ -50,6 +50,8 @@ use App\Http\Controllers\Admin\SocialMediaItemController;
 use App\Http\Controllers\Admin\SubscriberController;
 use App\Http\Controllers\Admin\TeamMemberController as TeamMemberControllerForAdmin;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\ClientController;
+
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\WhyChooseController;
@@ -275,6 +277,16 @@ Route::middleware(['admin:admin'])->group(function() {
     Route::get('admin/slider/delete/{id}', [SliderController::class,'destroy']);
     Route::get('admin/slider/edit/{id}', [SliderController::class,'edit']);
     Route::post('admin/slider/update/{id}', [SliderController::class,'update']);
+
+    /* --------------------------------------- */
+    /* OUR CLIENTS Client - Admin */
+    /* --------------------------------------- */
+    Route::get('admin/client/view', [ClientController::class,'index'])->name('admin.client.index');
+    Route::get('admin/client/create', [ClientController::class,'create'])->name('admin.client.create');
+    Route::post('admin/client/store', [ClientController::class,'store'])->name('admin.client.store');
+    Route::get('admin/client/client/{id}', [ClientController::class,'destroy']);
+    Route::get('admin/client/client/{id}', [ClientController::class,'edit']);
+    Route::post('admin/client/update/{id}', [ClientController::class,'update']);
 
 
     /* --------------------------------------- */
