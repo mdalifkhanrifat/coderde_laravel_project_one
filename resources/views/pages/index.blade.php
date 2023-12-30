@@ -372,16 +372,16 @@
 
 <marquee scrollamount="18"  direction="left" >
     <div class="container">
+
         <div class="row">
+            @foreach ($client as $row)
+
             <div class="column">
-                <img src="{{ asset('uploads/1.png') }}"alt="DWASA" onclick="myFunction(this);">
+                <img height="40" width="40" src="{{ asset('uploads/'.$row->client_photo) }}"alt="DWASA" onclick="myFunction(this);">
             </div>
-            <div class="column">
-                <img src="{{ asset('uploads/2.png') }}"alt="Government Projects" onclick="myFunction(this);">
-            </div>
-            <div class="column">
-                <img src="{{ asset('uploads/3.png') }}"alt="CDDL" onclick="myFunction(this);">
-            </div>
+                
+            @endforeach
+            
         </div>
     </div>
 </marquee>

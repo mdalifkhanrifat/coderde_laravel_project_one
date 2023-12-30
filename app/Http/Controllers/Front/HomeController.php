@@ -18,6 +18,9 @@ class HomeController extends Controller
     	$team_members = DB::table('team_members')->get();
     	$blogs = DB::table('blogs')->get();
     	$marquee = DB::table('page_marquees')->where('id',1)->first();
-        return view('pages.index', compact('sliders','page_home','why_choose_items','services', 'testimonials','projects','team_members','blogs','marquee'));
+    	$client = DB::table('clients')->get();
+	
+
+        return view('pages.index', compact('sliders','page_home','why_choose_items','services', 'testimonials','projects','team_members','blogs','marquee', 'client'));
     }
 }
