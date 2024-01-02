@@ -284,8 +284,8 @@ Route::middleware(['admin:admin'])->group(function() {
     Route::get('admin/client/view', [ClientController::class,'index'])->name('admin.client.index');
     Route::get('admin/client/create', [ClientController::class,'create'])->name('admin.client.create');
     Route::post('admin/client/store', [ClientController::class,'store'])->name('admin.client.store');
-    Route::get('admin/client/client/{id}', [ClientController::class,'destroy']);
-    Route::get('admin/client/client/{id}', [ClientController::class,'edit']);
+    Route::get('admin/client/delete/{id}', [ClientController::class,'destroy']);
+    Route::get('admin/client/edit/{id}', [ClientController::class,'edit']);
     Route::post('admin/client/update/{id}', [ClientController::class,'update']);
 
 

@@ -7,7 +7,7 @@
             <h1>{{ $eng_works_detail->name }}</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center">
-                    <li class="breadcrumb-item"><a href="{{ url('/') }}">{{ HOME }}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('/') }}">{{ "HOME" }}</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('front.engineering-work') }}"> {{"Engineering-Works"}} </a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{ $eng_works_detail->name }}</li>
                 </ol>
@@ -32,7 +32,7 @@
                 <div class="col-md-4">
                     <div class="sidebar">
                         <div class="widget">
-                            <h3>{{ ALL_ENGINEERING_WORK }}</h3>
+                            <h3>{{ "ALL ENGINEERING WORK" }}</h3>
                             <div class="type-2">
                                 <ul>
                                     @foreach($service_items as $row)

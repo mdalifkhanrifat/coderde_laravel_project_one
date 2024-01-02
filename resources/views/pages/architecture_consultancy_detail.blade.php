@@ -32,7 +32,7 @@
                 <div class="col-md-4">
                     <div class="sidebar">
                         <div class="widget">
-                            <h3> ALL ARCHItTECTURE CONSULTANCY </h3>
+                            <h3> {{"ALL ARCHItTECTURE CONSULTANCY"}} </h3>
                             <div class="type-2">
                                 <ul>
                                     @foreach($arc_cons_items as $row)
