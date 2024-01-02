@@ -40,15 +40,20 @@
                         @php
                         if($row->working_status  == 1 ){
                         @endphp
-                        <a class="d-inline float-right btn btn-secondary btn-sm" style="border-radius: 45px; font-size: 12px;" valign="buttom" href="#"> {{'On going'}} </a>
+                        <a class="d-inline float-right btn btn-secondary btn-sm" style="border-radius: 45px; font-size: 12px;" valign="buttom" href="#"> {{'Active'}} </a>
                         @php
                         } else if($row->working_status == 2){
                         @endphp
-                        <a class="d-inline float-right btn btn-success btn-sm" style="border-radius: 45px; font-size: 12px;" valign="buttom" href="#">Completed </a>
+                        <a class="d-inline float-right btn btn-success btn-sm" style="border-radius: 45px; font-size: 12px;" valign="buttom" href="#"> {{'Close'}} </a>
                         @php
-                        } else{
+                        } else if($row->working_status == 3){
                         @endphp
-                        <a class="d-inline float-right btn btn-info btn-sm" style="border-radius: 45px; font-size: 12px;" valign="buttom" href="#">Up comming </a>
+                        <a class="d-inline float-right btn btn-info btn-sm" style="border-radius: 45px; font-size: 12px;" valign="buttom" href="#"> {{'Ongoing'}}  </a>
+                        @php
+                        }
+                        else if($row->working_status == 4){
+                        @endphp
+                        <a class="d-inline float-right btn btn-info btn-sm" style="border-radius: 45px; font-size: 12px;" valign="buttom" href="#"> {{'Up comming'}}  </a>
                         @php
                         }
                         @endphp

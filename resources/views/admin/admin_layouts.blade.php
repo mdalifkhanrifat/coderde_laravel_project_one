@@ -346,9 +346,9 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{ route('admin.engineering-work.index') }}">Engineering Works</a>
                     <a class="collapse-item" href="{{ route('admin.architectural-work.index') }}">Architectural Works</a>
-                    <a class="collapse-item" href="{{ route('admin.architectural-consultancy.index') }}">Civil Consultancy</a>
-                    <a class="collapse-item" href="{{ route('admin.electrical-consultancy.index') }}">Architecture Consultancy</a>
-                    <a class="collapse-item" href="{{ route('admin.civil-consultancy.index') }}">Electrical Consultancy</a>
+                    <a class="collapse-item" href="{{ route('admin.civil-consultancy.index') }}">Civil Consultancy</a>
+                    <a class="collapse-item" href="{{ route('admin.architectural-consultancy.index') }}">Architecture Consultancy</a>
+                    <a class="collapse-item" href="{{ route('admin.electrical-consultancy.index') }}">Electrical Consultancy</a>
                 </div>
             </div>
         </li>
@@ -500,6 +500,16 @@
             <a class="nav-link" href="{{ route('admin.service.index') }}">
                 <i class="fas fa-certificate"></i>
                 <span>Service</span>
+            </a>
+        </li>
+        @endif
+
+         <!-- Client net edit -->
+        @php if( in_array('Service', $arr_one) || $logged_user_role_id==1 ): @endphp
+        <li class="nav-item {{ Request::is('admin/service/*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin.client.index') }}">
+                <i class="fas fa-certificate"></i>
+                <span>Client</span>
             </a>
         </li>
         @endif

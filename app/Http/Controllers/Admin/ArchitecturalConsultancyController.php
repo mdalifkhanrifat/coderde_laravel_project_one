@@ -14,7 +14,6 @@ class ArchitecturalConsultancyController extends Controller
 {
     public function index()
     {
-        // return "hello"; architectural_consultancy
         $architectural_consultancy = ArchitecturalConsultancy::all();
         return view('admin.architectural-consultancy.index', compact('architectural_consultancy'));
     }
@@ -26,6 +25,7 @@ class ArchitecturalConsultancyController extends Controller
 
     public function store(Request $request)
     {
+        
         if(env('PROJECT_MODE') == 0) {
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
@@ -49,8 +49,6 @@ class ArchitecturalConsultancyController extends Controller
         $final_name = 'architectural_consultancy-'.$ai_id.'.'.$ext;
         $request->file('photo')->move(public_path('uploads/'), $final_name);
         $data['photo'] = $final_name;
-
-        // dd($data);
 
         $architectural_consultancy->fill($data)->save();
         return redirect()->route('admin.architectural-consultancy.index')->with('success', 'Service is added successfully!');
@@ -118,3 +116,5 @@ class ArchitecturalConsultancyController extends Controller
         return Redirect()->back()->with('success', 'Service is deleted successfully!');
     }
 }
+
+

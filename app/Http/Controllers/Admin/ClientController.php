@@ -37,8 +37,8 @@ class ClientController extends Controller
 
         $ext = $request->file('client_photo')->extension();
         $final_name = 'client-'.$ai_id.'.'.$ext;
-        $request->file('client_photo')->move(public_path('uploads'), $final_name);
-
+        $request->file('client_photo')->move(public_path('uploads/'), $final_name);
+        
         $client = new Client();
         $data = $request->only($client->getFillable());
 
@@ -94,11 +94,10 @@ class ClientController extends Controller
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
         
-        $slider = Client::findOrFail($id);
-        unlink(public_path('uploads/'.$slider->slider_photo));
-        $slider->delete();
+        $client = Client::findOrFail($id);
+        unlink(public_path('uploads/'.$client->client_photo));
+        $client->delete();
 
-        // Success Message and redirect
         return Redirect()->back()->with('success', 'Slider is deleted successfully!');
     }
 

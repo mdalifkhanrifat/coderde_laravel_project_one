@@ -39,7 +39,7 @@
                 <div class="form-group">
                     <label for="">Existing client Photo</label>
                     <div>
-                        <img src="{{ asset('uploads/'.$client->slider_photo) }}" alt="" class="w_200">
+                        <img src="{{ asset('uploads/'.$client->client_photo) }}" alt="" class="w_200">
                     </div>
                 </div>
                 <div class="form-group">
