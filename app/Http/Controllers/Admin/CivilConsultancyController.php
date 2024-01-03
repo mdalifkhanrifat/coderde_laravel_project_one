@@ -32,8 +32,8 @@ class CivilConsultancyController extends Controller
         $data = $request->only($civil_consultancy->getFillable());
 
         $request->validate([
-            'name' => 'required|unique:engineering_works',
-            'slug' => 'unique:engineering_works',
+            'name' => 'required|unique:civil_consultancies',
+            'slug' => 'unique:civil_consultancies',
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
@@ -44,12 +44,11 @@ class CivilConsultancyController extends Controller
         $statement = DB::select("SHOW TABLE STATUS LIKE 'engineering_works'");
         $ai_id = $statement[0]->Auto_increment;
         $ext = $request->file('photo')->extension();
-        $final_name = 'engineering_work-'.$ai_id.'.'.$ext;
+        $key = random_int(100000, 999999);
+        $final_name = 'civil_consultancy_'.$key.'-'.$ai_id.'.'.$ext;
         $request->file('photo')->move(public_path('uploads/'), $final_name);
         $data['photo'] = $final_name;
-
         // dd($data);
-
         $civil_consultancy->fill($data)->save();
         return redirect()->route('admin.civil-consultancy.index')->with('success', 'Service is added successfully!');
     }
@@ -73,26 +72,30 @@ class CivilConsultancyController extends Controller
             $request->validate([
                 'name'   =>  [
                     'required',
-                    Rule::unique('engineering_works')->ignore($id),
+                    Rule::unique('civil_consultancies')->ignore($id),
                 ],
                 'slug'   =>  [
-                    Rule::unique('engineering_works')->ignore($id),
+                    Rule::unique('civil_consultancies')->ignore($id),
                 ],
                 'photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
             ]);
+
             unlink(public_path('uploads/'.$civil_consultancy->photo));
+
             $ext = $request->file('photo')->extension();
-            $final_name = 'service-'.$id.'.'.$ext;
+            $key = random_int(100000, 999999);
+            $final_name = 'civil_consultancy_'.$key.'-'.$id.'.'.$ext;
+
             $request->file('photo')->move(public_path('uploads/'), $final_name);
             $data['photo'] = $final_name;
         } else {
             $request->validate([
                 'name'   =>  [
                     'required',
-                    Rule::unique('engineering_works')->ignore($id),
+                    Rule::unique('civil_consultancies')->ignore($id),
                 ],
                 'slug'   =>  [
-                    Rule::unique('engineering_works')->ignore($id),
+                    Rule::unique('civil_consultancies')->ignore($id),
                 ]
             ]);
             $data['photo'] = $civil_consultancy->photo;
