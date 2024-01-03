@@ -46,7 +46,8 @@ class ArchitecturalConsultancyController extends Controller
         $statement = DB::select("SHOW TABLE STATUS LIKE 'architectural_consultancies'");
         $ai_id = $statement[0]->Auto_increment;
         $ext = $request->file('photo')->extension();
-        $final_name = 'architectural_consultancy-'.$ai_id.'.'.$ext;
+        $key = random_int(100000, 999999);
+        $final_name = 'architectural_consultancy_'.$key.'-'.$ai_id.'.'.$ext;
         $request->file('photo')->move(public_path('uploads/'), $final_name);
         $data['photo'] = $final_name;
 
@@ -66,8 +67,8 @@ class ArchitecturalConsultancyController extends Controller
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
         
-        $engineering_work = ArchitecturalConsultancy::findOrFail($id);
-        $data = $request->only($engineering_work->getFillable());
+        $architectural_consultancy = ArchitecturalConsultancy::findOrFail($id);
+        $data = $request->only($architectural_consultancy->getFillable());
 
         if($request->hasFile('photo')) {
             $request->validate([
@@ -80,9 +81,10 @@ class ArchitecturalConsultancyController extends Controller
                 ],
                 'photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
             ]);
-            unlink(public_path('uploads/'.$engineering_work->photo));
+            unlink(public_path('uploads/'.$architectural_consultancy->photo));
             $ext = $request->file('photo')->extension();
-            $final_name = 'service-'.$id.'.'.$ext;
+            $key = random_int(100000, 999999);
+            $final_name = 'architectural_consultancy_'.$key.'-'.$id.'.'.$ext;
             $request->file('photo')->move(public_path('uploads/'), $final_name);
             $data['photo'] = $final_name;
         } else {
@@ -95,12 +97,12 @@ class ArchitecturalConsultancyController extends Controller
                     Rule::unique('architectural_consultancies')->ignore($id),
                 ]
             ]);
-            $data['photo'] = $engineering_work->photo;
+            $data['photo'] = $architectural_consultancy->photo;
         }
 
         // dd($data);
 
-        $engineering_work->fill($data)->save();
+        $architectural_consultancy->fill($data)->save();
         return redirect()->route('admin.architectural-consultancy.index')->with('success', 'Service is updated successfully!');
     }
 

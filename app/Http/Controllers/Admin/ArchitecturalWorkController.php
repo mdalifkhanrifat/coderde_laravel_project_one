@@ -44,12 +44,11 @@ class ArchitecturalWorkController extends Controller
         $statement = DB::select("SHOW TABLE STATUS LIKE 'architectural_works'");
         $ai_id = $statement[0]->Auto_increment;
         $ext = $request->file('photo')->extension();
-        $final_name = 'engineering_work-'.$ai_id.'.'.$ext;
+        $key = random_int(100000, 999999);
+        $final_name = 'architectural_work_'. $key. '-' .$ai_id.'.'.$ext;
         $request->file('photo')->move(public_path('uploads/'), $final_name);
         $data['photo'] = $final_name;
-
         // dd($data);
-
         $architectural_work->fill($data)->save();
         return redirect()->route('admin.architectural-work.index')->with('success', 'Service is added successfully!');
     }
@@ -82,7 +81,8 @@ class ArchitecturalWorkController extends Controller
             ]);
             unlink(public_path('uploads/'.$architectural_work->photo));
             $ext = $request->file('photo')->extension();
-            $final_name = 'service-'.$id.'.'.$ext;
+            $key = random_int(100000, 999999);
+            $final_name = 'architectural_work_'. $key. '-' .$id.'.'.$ext;
             $request->file('photo')->move(public_path('uploads/'), $final_name);
             $data['photo'] = $final_name;
         } else {

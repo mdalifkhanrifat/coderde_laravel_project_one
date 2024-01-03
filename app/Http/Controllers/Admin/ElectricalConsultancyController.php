@@ -40,16 +40,13 @@ class ElectricalConsultancyController extends Controller
         if(empty($data['slug'])) {
             $data['slug'] = Str::slug($request->name);
         }
-
         $statement = DB::select("SHOW TABLE STATUS LIKE 'engineering_works'");
         $ai_id = $statement[0]->Auto_increment;
         $ext = $request->file('photo')->extension();
-        $final_name = 'electrical_consultancy-'.$ai_id.'.'.$ext;
+        $key = random_int(100000, 999999);
+        $final_name = 'electrical_consultancy_'.$key.'-'.$ai_id.'.'.$ext;
         $request->file('photo')->move(public_path('uploads/'), $final_name);
         $data['photo'] = $final_name;
-
-        // dd($data);
-
         $electrical_consultancy->fill($data)->save();
         return redirect()->route('admin.electrical-consultancy.index')->with('success', 'Service is added successfully!');
     }
@@ -82,7 +79,8 @@ class ElectricalConsultancyController extends Controller
             ]);
             unlink(public_path('uploads/'.$electrical_consultancy->photo));
             $ext = $request->file('photo')->extension();
-            $final_name = 'service-'.$id.'.'.$ext;
+            $key = random_int(100000, 999999);
+            $final_name = 'electrical_consultancy_'.$key.'-'.$id.'.'.$ext;
             $request->file('photo')->move(public_path('uploads/'), $final_name);
             $data['photo'] = $final_name;
         } else {

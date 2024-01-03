@@ -44,7 +44,8 @@ class EngineeringWorkController extends Controller
         $statement = DB::select("SHOW TABLE STATUS LIKE 'engineering_works'");
         $ai_id = $statement[0]->Auto_increment;
         $ext = $request->file('photo')->extension();
-        $final_name = 'engineering_work-'.$ai_id.'.'.$ext;
+        $key = random_int(100000, 999999);
+        $final_name = 'engineering_work_'. $key.'-'.$ai_id.'.'.$ext;
         $request->file('photo')->move(public_path('uploads/'), $final_name);
         $data['photo'] = $final_name;
 
@@ -82,7 +83,8 @@ class EngineeringWorkController extends Controller
             ]);
             unlink(public_path('uploads/'.$engineering_work->photo));
             $ext = $request->file('photo')->extension();
-            $final_name = 'service-'.$id.'.'.$ext;
+            $key = random_int(100000, 999999);
+            $final_name = 'engineering_work_'. $key.'-'.$id.'.'.$ext;
             $request->file('photo')->move(public_path('uploads/'), $final_name);
             $data['photo'] = $final_name;
         } else {

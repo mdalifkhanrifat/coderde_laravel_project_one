@@ -35,8 +35,10 @@ class ClientController extends Controller
         $statement = DB::select("SHOW TABLE STATUS LIKE 'clients'");
         $ai_id = $statement[0]->Auto_increment;
 
+        $key = random_int(100000, 999999);
         $ext = $request->file('client_photo')->extension();
-        $final_name = 'client-'.$ai_id.'.'.$ext;
+        $final_name = 'client_'. $key .'-'. $ai_id .'.'.$ext;
+
         $request->file('client_photo')->move(public_path('uploads/'), $final_name);
         
         $client = new Client();
@@ -74,9 +76,17 @@ class ClientController extends Controller
 
             unlink(public_path('uploads/'.$client->client_photo));
 
+
+            
+
             // Uploading the file
+
+            // $ext = $request->file('client_photo')->extension();
+            // $final_name = 'client-'.$id.'.'.$ext;
+            $key = random_int(100000, 999999);
             $ext = $request->file('client_photo')->extension();
-            $final_name = 'client-'.$id.'.'.$ext;
+            $final_name = 'client_'. $key .'-'. $id .'.'.$ext;
+
             $request->file('client_photo')->move(public_path('uploads/'), $final_name);
 
             unset($data['client_photo']);
