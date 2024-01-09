@@ -127,66 +127,74 @@
                 </div>
                 <div class="row">
                     @foreach($why_choose_items as $row)
-                        <div class="col-md-4">
-                            <div class="feature-item wow fadeInUp">
-                                <div class="icon">
-                                    <img style="width: 200px; height: 200px;" src="{{ asset('uploads/1.jpg') }}" alt="">
-                                </div>
-                                <h4><a style="color: white;" href="https://www.shawalbd.com/engineering-works">Engineering Works</a></h4>
-
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="feature-item wow fadeInUp">
-                                <div class="icon">
-                                    <img style="width: 200px; height: 200px;" src="{{ asset('uploads/2.jpeg') }}" alt="">
+                        <a style="color: white;" href="https://www.shawalbd.com/engineering-works">
+                            <div class="col-md-4">
+                                <div class="feature-item wow fadeInUp">
+                                    <div class="icon">
+                                        <img style="width: 200px; height: 200px;" src="{{ asset('uploads/1.jpg') }}" alt="">
+                                    </div>
+                                    <h4><a style="color: white;" href="https://www.shawalbd.com/engineering-works">Engineering Works</a></h4>
 
                                 </div>
-                                <h4><a style="color: white;" href="https://www.shawalbd.com/architectural-works">Architectural Works</a></h4>
-
                             </div>
-                        </div>
+                        </a>
+                        <a style="color: white;" href="https://www.shawalbd.com/architectural-works">
+                            <div class="col-md-4">
+                                <div class="feature-item wow fadeInUp">
+                                    <div class="icon">
+                                        <img style="width: 200px; height: 200px;" src="{{ asset('uploads/2.jpeg') }}" alt="">
 
-                        <div class="col-md-4">
-                            <div class="feature-item wow fadeInUp">
-                                <div class="icon">
-                                    <img style="width: 200px; height: 200px;" src="{{ asset('uploads/33.png') }}" alt="">
+                                    </div>
+                                    <h4><a style="color: white;" href="https://www.shawalbd.com/architectural-works">Architectural Works</a></h4>
+
                                 </div>
-                                <h4><a style="color: white;" href="https://www.shawalbd.com/electrical-consultancys">Electrical Consultancy</a></h4>
-
                             </div>
-                        </div>
+                        </a>
+                        <a style="color: white;" href="https://www.shawalbd.com/electrical-consultancys">
+                            <div class="col-md-4">
+                                <div class="feature-item wow fadeInUp">
+                                    <div class="icon">
+                                        <img style="width: 200px; height: 200px;" src="{{ asset('uploads/33.png') }}" alt="">
+                                    </div>
+                                    <h4><a style="color: white;" href="https://www.shawalbd.com/electrical-consultancys">Electrical Consultancy</a></h4>
 
-                        <div class="col-md-4">
-                            <div class="feature-item wow fadeInUp">
-                                <div class="icon">
-                                    <img style="width: 200px; height: 200px;" src="{{ asset('uploads/34.jpg') }}" alt="">
                                 </div>
-                                <h4><a style="color: white;" href="https://www.shawalbd.com/architecture-consultancys">Architecture Consultancy</a></h4>
-
                             </div>
-                        </div>
+                        </a>
+                        <a style="color: white;" href="https://www.shawalbd.com/architecture-consultancys">
 
-                        <div class="col-md-4">
-                            <div class="feature-item wow fadeInUp">
-                                <div class="icon">
-                                    <img style="width: 200px; height: 200px;" src="{{ asset('uploads/35.jpg') }}" alt="">
+                            <div class="col-md-4">
+                                <div class="feature-item wow fadeInUp">
+                                    <div class="icon">
+                                        <img style="width: 200px; height: 200px;" src="{{ asset('uploads/34.jpg') }}" alt="">
+                                    </div>
+                                    <h4><a style="color: white;" href="https://www.shawalbd.com/architecture-consultancys">Architecture Consultancy</a></h4>
+
                                 </div>
-                                <h4><a style="color: white;" href="https://www.shawalbd.com/civil-consultancys">Civil Consultancy</a></h4>
-
                             </div>
-                        </div>
+                        </a>
+                        <a style="color: white;" href="https://www.shawalbd.com/civil-consultancys">
+                            <div class="col-md-4">
+                                <div class="feature-item wow fadeInUp">
+                                    <div class="icon">
+                                        <img style="width: 200px; height: 200px;" src="{{ asset('uploads/35.jpg') }}" alt="">
+                                    </div>
+                                    <h4><a style="color: white;" href="https://www.shawalbd.com/civil-consultancys">Civil Consultancy</a></h4>
 
-                        <div class="col-md-4">
-                            <div class="feature-item wow fadeInUp">
-                                <div class="icon">
-                                    <img style="width: 200px; height: 200px;" src="{{ asset('uploads/36.webp') }}" alt="">
                                 </div>
-                                <h4><a style="color: white;" href="https://www.shawalbd.com/projects">All Projects</a></h4>
-
                             </div>
-                        </div>
+                        </a>
+                        <a style="color: white;" href="https://www.shawalbd.com/projects">
+                            <div class="col-md-4">
+                                <div class="feature-item wow fadeInUp">
+                                    <div class="icon">
+                                        <img style="width: 200px; height: 200px;" src="{{ asset('uploads/36.webp') }}" alt="">
+                                    </div>
+                                    <h4><a style="color: white;" href="https://www.shawalbd.com/projects">All Projects</a></h4>
+
+                                </div>
+                            </div>
+                        </a>
                     @endforeach
                 </div>
             </div>
