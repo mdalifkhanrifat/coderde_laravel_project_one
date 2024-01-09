@@ -127,7 +127,7 @@
                 </div>
                 <div class="row">
                     @foreach($why_choose_items as $row)
-                        <div class="col-md-4">
+                        <div  class="col-md-4">
                             <div class="feature-item wow fadeInUp">
                                 <div class="icon">
                                     <img style="width: 200px; height: 200px;" src="{{ asset('uploads/1.jpg') }}" alt="">
